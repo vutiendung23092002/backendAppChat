@@ -47,12 +47,13 @@ public class UserController {
 	public ResponseEntity<?> creatUser(){
 		Users user = new Users("dung2309", "Vũ Tiến Dũng", "0896011465", "51565239", "Kim Đồng" );
 		return ResponseEntity.status(HttpStatus.OK).body(user);
-	}
+	} 
 	
 	@PutMapping("/{id}")
 	public ResponseEntity<?> updateUser(){
 		Users user = new Users("dung2309", "Vũ Tiến Dũng", "0896011465", "51565239", "Kim Đồng" );
 		return ResponseEntity.status(HttpStatus.OK).body(user);
+		//test
 	}
 	
 	@DeleteMapping("/{id}")
