@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 public class Users {
 	private String id;
 	private String fullName;
+	private String dateOfBirth;
 	private String email;
 	private int phoneNumber;
 	private String password;
@@ -13,15 +14,20 @@ public class Users {
 	private String address;
 	private String activeStatus;
 	private String priority;
+	
+	private boolean isEmail(String input) {
+	    return input.contains("@") && input.contains(".");
+	}
 
 	public Users() {
 	    
 	}
 	
-	public Users(String id, String fullName, String contactInfo, String password, String address) {
+	public Users(String id, String fullName, String dateOfBirth ,String contactInfo, String password, String address) {
 	    super();
 	    this.id = id;
 	    this.fullName = fullName;
+	    this.dateOfBirth = dateOfBirth;
 	    this.password = password;
 	    this.address = address;
 
@@ -35,18 +41,13 @@ public class Users {
 	        }
 	    }
 	}
-
-	private boolean isEmail(String input) {
-	    return input.contains("@") && input.contains(".");
-	}
-
-
-	
-	public Users(String id, String fullName, String email, int phoneNumber, String password, String avatar,
+ 
+	public Users(String id, String fullName, String dateOfBirth, String email, int phoneNumber, String password, String avatar,
 			String address, String activeStatus, String priority) {
 		super();
 		this.id = id;
 		this.fullName = fullName;
+		this.dateOfBirth = dateOfBirth;
 		this.email = email;
 		this.phoneNumber = phoneNumber;
 		this.password = password;
@@ -109,6 +110,14 @@ public class Users {
 	}
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public String getDateOfBirth() {
+		return dateOfBirth;
+	}
+
+	public void setDateOfBirth(String dateOfBirth) {
+		this.dateOfBirth = dateOfBirth;
 	}
 
 	

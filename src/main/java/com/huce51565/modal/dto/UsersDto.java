@@ -12,6 +12,7 @@ import lombok.Setter;
 public class UsersDto {
 	private String id;
 	private String fullName;
+	private String dateOfBirth;
 	private String email;
 	private int phoneNumber;
 	private String avatar;
@@ -23,11 +24,12 @@ public class UsersDto {
 	public UsersDto() {
 		super();
 	}
-	public UsersDto(String id, String fullName, String email, int phoneNumber, String avatar, String address,
+	public UsersDto(String id, String fullName, String dateOfBirth, String email, int phoneNumber, String avatar, String address,
 			String activeStatus, String priority) {
 		super();
 		this.id = id;
 		this.fullName = fullName;
+		this.dateOfBirth = dateOfBirth;
 		this.email = email;
 		this.phoneNumber = phoneNumber;
 		this.avatar = avatar;
@@ -35,6 +37,7 @@ public class UsersDto {
 		this.activeStatus = activeStatus;
 		this.priority = priority;
 	}
+	
 	public String getId() {
 		return id;
 	}
@@ -82,6 +85,12 @@ public class UsersDto {
 	}
 	public void setPriority(String priority) {
 		this.priority = priority;
+	}
+	public String getDateOfBirth() {
+		return dateOfBirth;
+	}
+	public void setDateOfBirth(String dateOfBirth) {
+		this.dateOfBirth = dateOfBirth;
 	}
 
 }
