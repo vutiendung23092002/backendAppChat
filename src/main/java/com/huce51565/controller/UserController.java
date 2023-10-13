@@ -70,7 +70,7 @@ public class UserController {
 
 	    userService.updateUser(updatedUserRequest);
 
-	    return ResponseEntity.status(HttpStatus.OK).body(existingUser);
+	    return ResponseEntity.status(HttpStatus.OK).body(updatedUserRequest);
 	}
 
 	

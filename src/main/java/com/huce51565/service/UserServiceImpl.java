@@ -80,25 +80,38 @@ public class UserServiceImpl implements UserService {
 		// TODO Auto-generated method stub
 		for (Users u : users) {
 	        if (u.getId().equals(user.getId())) {
-	            u.setFullName(user.getFullName());
-	            u.setDateOfBirth(user.getDateOfBirth());
-	            if(isEmail(user.getContact())) {
-	            	u.setEmail(user.getContact());
-	            	u.setPhoneNumber(u.getPhoneNumber());
-	    	    } else {
-	    	    	try {
-	    	    		u.setEmail(u.getEmail());
-	    	    		u.setPhoneNumber(Integer.parseInt(user.getContact()));
-	    	        } catch (NumberFormatException e) {
-	    	            System.out.println("Không thể chuyển chỗi contact sang dạng số điện thoại");
-	    	        }
-	    	    }
-	            u.setAddress(user.getAddress());
+	        	if(user.getFullName() == null) {
+	        		user.setFullName(u.getFullName());
+	        	} else {
+	        		u.setFullName(user.getFullName());
+	        	} 
+	        	
+	        	if(user.getDateOfBirth() == null) {
+	        		user.setDateOfBirth(u.getDateOfBirth());
+	        	} else {
+	        		u.setDateOfBirth(user.getDateOfBirth());
+	        	}
+	        	
+	        	if(user.getContact() != null) {
+	        		if(isEmail(user.getContact())) {
+		            	u.setEmail(user.getContact());
+		    	    } else {
+		    	    	try {
+		    	    		u.setPhoneNumber(Integer.parseInt(user.getContact()));
+		    	        } catch (NumberFormatException e) {
+		    	            System.out.println("Không thể chuyển chỗi contact sang dạng số điện thoại");
+		    	        }
+		    	    }
+	        	}
+	        	
+	        	if(!(user.getAddress().isEmpty())) {
+	        		u.setAddress(user.getAddress());
+	        	}
+	        	
 	            System.out.println("pass của "+ u.getId() + " " + u.getPassword());
 	            return u;
 	        }
 	    }
-		
 		throw new NotFoundException("User không tồn tại trong hệ thống");
 	}
 
@@ -112,5 +125,4 @@ public class UserServiceImpl implements UserService {
 		}
 		throw new NotFoundException("User không tồn tại trong hệ thống");
 	}
-
 }

@@ -14,7 +14,6 @@ public interface UserService {
 	public UsersDto getUserDtoById(String id);
 	public Users getUserById(String id);
 	public List<UsersDto> searchUserByName(String name);
-	//public Users createUser(String id, String fullName, String contact, String password, String adress);
 	public Users createUser(Users user);
 	public Users updateUser(UserRequest user);
 }
